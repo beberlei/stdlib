@@ -74,4 +74,12 @@ class StringsTest extends TestCase
         $this->assertEquals(-1, strings\last_index("foo", "bar"));
         $this->assertEquals(2, strings\last_index("foo", "o"));
     }
+
+    public function testMap()
+    {
+        $this->assertEquals(
+            "'Gjnf oevyyvt naq gur fyvgul tbcure...",
+            strings\Map('str_rot13', "'Twas brillig and the slithy gopher...")
+        );
+    }
 }

@@ -62,3 +62,15 @@ function last_index(string $string, string $substring) : int
 
     return $pos;
 }
+
+function map(callable $fn, string $string) : string
+{
+    $len = strlen($string);
+    $new = "";
+
+    for ($i = 0; $i < $len; $i++) {
+        $new .= $fn($string[$i]);
+    }
+
+    return $new;
+}
