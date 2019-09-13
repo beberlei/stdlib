@@ -17,3 +17,21 @@ function contains(string $string, string $substring) : bool
 
     return strpos($string, $substring) !== false;
 }
+
+function has_prefix(string $string, string $prefix) : bool
+{
+    if (strlen($prefix) === 0) {
+        return true;
+    }
+
+    return strpos($string, $prefix) === 0;
+}
+
+function has_suffix(string $string, string $suffix) : bool
+{
+    if (strlen($suffix) === 0) {
+        return true;
+    }
+
+    return substr($string, -1 * strlen($suffix)) === $suffix;
+}

@@ -33,4 +33,25 @@ class StringsTest extends TestCase
 
         $this->assertFalse(strings\contains("foo", "bar"));
     }
+
+    public function testHasPrefix()
+    {
+        $this->assertTrue(strings\has_prefix("foo", "f"));
+        $this->assertTrue(strings\has_prefix("foo", "foo"));
+        $this->assertTrue(strings\has_prefix("foo", ""));
+
+        $this->assertFalse(strings\has_prefix("foo", "bar"));
+        $this->assertFalse(strings\has_prefix("foo", "ofoo"));
+    }
+
+    public function testHasSuffix()
+    {
+        $this->assertTrue(strings\has_suffix("foo", "o"));
+        $this->assertTrue(strings\has_suffix("foo", "foo"));
+        $this->assertTrue(strings\has_suffix("foo", ""));
+
+        $this->assertFalse(strings\has_suffix("foo", "bar"));
+        $this->assertFalse(strings\has_suffix("foo", "oof"));
+        $this->assertFalse(strings\has_suffix("foo", "foobar"));
+    }
 }

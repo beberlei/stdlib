@@ -9,4 +9,6 @@ use php\strings;
 
 strings\compare("foo", "bar");
 strings\contains("foobar", "foo");
+strings\has_prefix("foobar", "foo");
+strings\has_suffix("foobar", "bar");
 ```
