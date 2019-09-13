@@ -92,4 +92,15 @@ class StringsTest extends TestCase
         $this->expectException(\UnexpectedValueException::class);
         strings\repeat("foo", -1);
     }
+
+    public function testReplace()
+    {
+        $this->assertEquals("bar", strings\replace("foo", "foo", "bar"));
+        $this->assertEquals("bar", strings\replace("foo", "foo", "bar", 1));
+        $this->assertEquals("foo", strings\replace("foo", "foo", "bar", 0));
+
+        $this->assertEquals("barbarfoo", strings\replace("foofoofoo", "foo", "bar", 2));
+        $this->assertEquals("barbarbar", strings\replace("foofoofoo", "foo", "bar"));
+    }
+
 }

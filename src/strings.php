@@ -83,3 +83,12 @@ function repeat(string $string, int $count) : string
 
     return str_repeat($string, $count);
 }
+
+function replace(string $string, string $old, string $new, int $n = -1)
+{
+    if ($n < 0) {
+        return str_replace($old, $new, $string);
+    }
+
+    return preg_replace('(' . preg_quote($old) . ')', $new, $string, $n);
+}
