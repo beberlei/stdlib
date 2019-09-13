@@ -103,4 +103,11 @@ class StringsTest extends TestCase
         $this->assertEquals("barbarbar", strings\replace("foofoofoo", "foo", "bar"));
     }
 
+    public function testSplit()
+    {
+        $this->assertEquals(['a', 'b', 'c'], strings\split("a,b,c", ","));
+        $this->assertEquals(['', 'man ', 'plan ', 'canal panama'], strings\split("a man a plan a canal panama", "a "));
+        $this->assertEquals([' ', 'x', 'y', 'z', ' '], strings\split(" xyz ", ""));
+        $this->assertEquals([''], strings\split("", "Bernardo O'Higgins"));
+    }
 }

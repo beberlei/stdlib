@@ -92,3 +92,12 @@ function replace(string $string, string $old, string $new, int $n = -1)
 
     return preg_replace('(' . preg_quote($old) . ')', $new, $string, $n);
 }
+
+function split(string $string, string $separator) : array
+{
+    if (strlen($separator) === 0) {
+        return str_split($string);
+    }
+
+    return explode($separator, $string);
+}
