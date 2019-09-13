@@ -46,3 +46,8 @@ function index(string $string, string $substring) : int
 
     return $pos;
 }
+
+function join(array $strings, string $separator) : string
+{
+    return implode($separator, $strings);
+}

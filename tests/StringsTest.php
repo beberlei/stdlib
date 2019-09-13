@@ -61,4 +61,10 @@ class StringsTest extends TestCase
         $this->assertEquals(-1, strings\index("foo", "bar"));
         $this->assertEquals(1, strings\index("foo", "o"));
     }
+
+    public function testJoin()
+    {
+        $this->assertEquals("hello world", strings\join(["hello", "world"], " "));
+        $this->assertEquals("1+1", strings\join(["1", "1"], "+"));
+    }
 }
