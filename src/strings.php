@@ -51,3 +51,14 @@ function join(array $strings, string $separator) : string
 {
     return implode($separator, $strings);
 }
+
+function last_index(string $string, string $substring) : int
+{
+    $pos = strrpos($string, $substring);
+
+    if ($pos === false) {
+        return -1;
+    }
+
+    return $pos;
+}

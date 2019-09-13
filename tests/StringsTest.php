@@ -67,4 +67,11 @@ class StringsTest extends TestCase
         $this->assertEquals("hello world", strings\join(["hello", "world"], " "));
         $this->assertEquals("1+1", strings\join(["1", "1"], "+"));
     }
+
+    public function testLastIndex()
+    {
+        $this->assertEquals(3, strings\last_index("foofoo", "foo"));
+        $this->assertEquals(-1, strings\last_index("foo", "bar"));
+        $this->assertEquals(2, strings\last_index("foo", "o"));
+    }
 }
