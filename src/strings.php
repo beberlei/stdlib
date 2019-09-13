@@ -74,3 +74,12 @@ function map(callable $fn, string $string) : string
 
     return $new;
 }
+
+function repeat(string $string, int $count) : string
+{
+    if ($count < 0) {
+        throw new \UnexpectedValueException("Count is required to be >= 0.");
+    }
+
+    return str_repeat($string, $count);
+}

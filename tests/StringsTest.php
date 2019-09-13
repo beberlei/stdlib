@@ -82,4 +82,14 @@ class StringsTest extends TestCase
             strings\Map('str_rot13', "'Twas brillig and the slithy gopher...")
         );
     }
+
+    public function testRepeat()
+    {
+        $this->assertEquals("foo", strings\repeat("foo", 1));
+        $this->assertEquals("foofoo", strings\repeat("foo", 2));
+        $this->assertEquals("", strings\repeat("foo", 0));
+
+        $this->expectException(\UnexpectedValueException::class);
+        strings\repeat("foo", -1);
+    }
 }
