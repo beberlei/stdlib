@@ -110,3 +110,28 @@ function split(string $string, string $separator, int $limit = PHP_INT_MAX) : ar
 
     return explode($separator, $string, $limit);
 }
+
+function to_lower(string $string) : string
+{
+    return strtolower($string);
+}
+
+function to_upper(string $string) : string
+{
+    return strtoupper($string);
+}
+
+function trim(string $string, string $mask = " \t\n\r\0\x0B")
+{
+    return \trim($string, $mask);
+}
+
+function trim_left(string $string, string $mask = " \t\n\r\0\x0B")
+{
+    return \ltrim($string, $mask);
+}
+
+function trim_right(string $string, string $mask = " \t\n\r\0\x0B")
+{
+    return \rtrim($string, $mask);
+}

@@ -113,4 +113,34 @@ class StringsTest extends TestCase
         $this->assertEquals(['a', 'b,c'], strings\split("a,b,c", ",", 2));
         $this->assertEquals(['a', 'bc'], strings\split("abc", "", 2));
     }
+
+    public function testToLower()
+    {
+        $this->assertEquals('foo', strings\to_lower('FOO'));
+        $this->assertEquals('foo', strings\to_lower('foo'));
+    }
+
+    public function testToUpper()
+    {
+        $this->assertEquals('FOO', strings\to_upper('FOO'));
+        $this->assertEquals('FOO', strings\to_upper('foo'));
+    }
+
+    public function testTrim()
+    {
+        $this->assertEquals('Hello, Gophers', strings\trim("¡¡¡Hello, Gophers!!!", "!¡"));
+        $this->assertEquals("xyz", strings\trim(" xyz "));
+    }
+
+    public function testTrimLeft()
+    {
+        $this->assertEquals('Hello, Gophers!!!', strings\trim_left("¡¡¡Hello, Gophers!!!", "!¡"));
+        $this->assertEquals("xyz ", strings\trim_left(" xyz "));
+    }
+
+    public function testTrimRight()
+    {
+        $this->assertEquals('¡¡¡Hello, Gophers', strings\trim_right("¡¡¡Hello, Gophers!!!", "!¡"));
+        $this->assertEquals(" xyz", strings\trim_right(" xyz "));
+    }
 }
