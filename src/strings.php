@@ -15,7 +15,7 @@ function contains(string $string, string $substring) : bool
         return true;
     }
 
-    return strpos($string, $substring) !== false;
+    return index($string, $substring) >= 0;
 }
 
 function has_prefix(string $string, string $prefix) : bool
@@ -24,7 +24,7 @@ function has_prefix(string $string, string $prefix) : bool
         return true;
     }
 
-    return strpos($string, $prefix) === 0;
+    return index($string, $prefix) === 0;
 }
 
 function has_suffix(string $string, string $suffix) : bool
@@ -34,4 +34,15 @@ function has_suffix(string $string, string $suffix) : bool
     }
 
     return substr($string, -1 * strlen($suffix)) === $suffix;
+}
+
+function index(string $string, string $substring) : int
+{
+    $pos = strpos($string, $substring);
+
+    if ($pos === false) {
+        return -1;
+    }
+
+    return $pos;
 }

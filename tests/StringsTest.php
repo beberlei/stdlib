@@ -54,4 +54,11 @@ class StringsTest extends TestCase
         $this->assertFalse(strings\has_suffix("foo", "oof"));
         $this->assertFalse(strings\has_suffix("foo", "foobar"));
     }
+
+    public function testIndex()
+    {
+        $this->assertEquals(0, strings\index("foo", "foo"));
+        $this->assertEquals(-1, strings\index("foo", "bar"));
+        $this->assertEquals(1, strings\index("foo", "o"));
+    }
 }
