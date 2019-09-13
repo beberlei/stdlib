@@ -23,4 +23,14 @@ class StringsTest extends TestCase
     {
         $this->assertSame($expected, strings\compare($a, $b));
     }
+
+    public function testContains()
+    {
+        $this->assertTrue(strings\contains("foo", "foo"));
+        $this->assertTrue(strings\contains("foobarbaz", "bar"));
+        $this->assertTrue(strings\contains("foo", ""));
+        $this->assertTrue(strings\contains("", ""));
+
+        $this->assertFalse(strings\contains("foo", "bar"));
+    }
 }
