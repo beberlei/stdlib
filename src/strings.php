@@ -93,11 +93,20 @@ function replace(string $string, string $old, string $new, int $n = -1)
     return preg_replace('(' . preg_quote($old) . ')', $new, $string, $n);
 }
 
-function split(string $string, string $separator) : array
+function split(string $string, string $separator, int $limit = PHP_INT_MAX) : array
 {
     if (strlen($separator) === 0) {
-        return str_split($string);
+        $chars = str_split($string);
+
+        if ($limit > count($chars)) {
+            return $chars;
+        }
+
+        return array_merge(
+            array_slice($chars, 0, $limit - 1),
+            [implode($separator, array_slice($chars, $limit - 1))]
+        );
     }
 
-    return explode($separator, $string);
+    return explode($separator, $string, $limit);
 }
